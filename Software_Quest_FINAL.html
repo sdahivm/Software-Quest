@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Software Quest · ADSO SENA</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f6fb;color:#20283a}
+button{font:inherit;cursor:pointer}.top{height:58px;background:#fff;border-bottom:1px solid #e1e5ee;display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:5}.brand{font-weight:800;color:#4d5fd3}.status{font-size:13px;color:#647087}.progress{display:inline-block;width:90px;height:7px;background:#e8ebf2;border-radius:9px;vertical-align:middle;margin-left:7px}.progress span{display:block;height:100%;width:25%;background:#6171df;border-radius:9px}
+.page{display:none;min-height:calc(100vh - 58px);padding:30px 5%;align-items:center;justify-content:center}.page.active{display:flex}.box{width:min(980px,100%)}.center{text-align:center}.tag{display:inline-block;background:#e9edff;color:#4d5fd3;border-radius:20px;padding:7px 12px;font-size:11px;font-weight:800;letter-spacing:.5px}.title{font-size:clamp(38px,8vw,72px);line-height:.95;margin:15px 0 12px}.title span{color:#5b6de0}.subtitle{color:#68748a;line-height:1.6;max-width:650px;margin:0 auto 25px}.btn{border:0;border-radius:10px;background:#5d6fdf;color:#fff;padding:14px 22px;font-weight:800;min-height:48px}.btn.secondary{background:#fff;color:#56627a;border:1px solid #dce1eb;margin-left:7px}.art{width:260px;height:155px;margin:0 auto 18px;position:relative}.monitor{position:absolute;left:35px;top:10px;width:190px;height:115px;border:8px solid #29334b;border-radius:14px;background:linear-gradient(135deg,#9daaff,#e2e6ff)}.monitor:after{content:"";position:absolute;width:70px;height:8px;background:#29334b;bottom:-25px;left:50%;transform:translateX(-50%);border-radius:5px}.base{position:absolute;width:250px;height:13px;background:#29334b;bottom:0;left:5px;border-radius:10px}.dots{position:absolute;border-radius:50%;width:24px;height:24px;background:#ffc969;right:0;top:0}.dots.b{background:#8bd9be;left:0;top:35px;width:34px;height:34px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:32px}.card{background:#fff;border:1px solid #e1e5ee;border-radius:12px;padding:13px;text-align:left}.card b{color:#5969d6}.card small{display:block;color:#758096;margin-top:5px}
+.panel{background:#fff;border:1px solid #e0e5ee;border-radius:16px;padding:22px;box-shadow:0 12px 35px #44557b12}.head h2{font-size:34px;margin:8px 0}.head p{color:#68748a}.items{display:flex;flex-wrap:wrap;gap:9px;background:#f7f8fc;padding:14px;border-radius:12px;min-height:80px}.item{background:#fff;border:1px solid #dce1eb;border-radius:9px;padding:12px;font-weight:700;touch-action:none}.zones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}.zone{min-height:180px;border:2px dashed #cbd2e1;border-radius:13px;padding:15px;text-align:center}.zone h3{margin:5px}.zone p{font-size:12px;color:#758096}.zone .item{display:inline-block;margin:4px}.feedback{margin-top:15px;padding:16px;border-radius:12px;background:#eef8f4;border:1px solid #ccebdd;display:none;line-height:1.55}.feedback.show{display:block}.feedback h3{margin:0 0 7px;color:#197657}
+.permission{display:grid;grid-template-columns:130px 1fr 130px;gap:14px;align-items:center}.person{text-align:center;background:#f7f8fc;padding:15px;border-radius:12px}.person .ico{font-size:35px}.door{background:#f1f3ff;border:1px solid #d9def0;border-radius:14px;padding:18px}.door h3{text-align:center;color:#5262d4}.perms{display:grid;grid-template-columns:1fr 1fr;gap:8px}.perm{background:#fff;border:1px solid #d8deea;border-radius:9px;padding:13px;font-weight:700;color:#59657b}.perm.selected{background:#e8ebff;border-color:#6676df;color:#4d5fd3}
+.licenses{display:grid;grid-template-columns:1fr 1fr;gap:12px}.lic{padding:17px;border:1px solid #dfe4ed;border-radius:13px;background:#fafbfe}.lic h3{margin:0 0 3px;font-size:22px}.lic h4{margin:0 0 9px;color:#68748a;font-size:13px}.lic p{font-size:13px;line-height:1.55;color:#536077;margin:0}.key{display:block;margin-top:10px;font-size:12px;color:#4f61d5;font-weight:800}
+.challenge{display:grid;grid-template-columns:300px 1fr;gap:14px}.clue{background:#f2efff;border:1px solid #ddd6ff;border-radius:13px;padding:20px}.clue b{font-size:11px;color:#7251c4}.clue p{font-size:17px;line-height:1.55}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{background:#fff;border:1px solid #dce2ed;border-radius:11px;padding:17px;text-align:left}.answer b{font-size:18px}.answer small{display:block;color:#758096;margin-top:5px}
+.case{background:#fff;border:1px solid #e0e5ee;border-radius:16px;padding:23px}.case h2{margin:8px 0;font-size:28px}.case p{color:#657188;line-height:1.6}.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice{background:#f8f9fc;border:1px solid #dce2ed;border-radius:11px;padding:16px;text-align:left}.choice b{font-size:17px}.choice small{display:block;color:#758096;margin-top:5px}
+.result{text-align:center}.result h1{font-size:40px}.score{font-size:44px;color:#5969d6;font-weight:800;margin:15px}.rubric{background:#fff;border:1px solid #e0e5ee;border-radius:14px;overflow:auto}.row{display:grid;grid-template-columns:minmax(260px,1fr) repeat(4,45px);gap:5px;align-items:center;padding:13px;border-bottom:1px solid #e7eaf0;font-size:13px}.row.head{font-weight:800;color:#5262d4}
+@media(max-width:700px){.top{padding:0 4%}.status{font-size:11px}.cards,.licenses{grid-template-columns:1fr 1fr}.zones,.permission,.challenge,.choices,.answers{grid-template-columns:1fr}.head h2{font-size:28px}.page{padding:22px 4%}.person{padding:10px}.door{order:0}.row{grid-template-columns:minmax(190px,1fr) repeat(4,38px)}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">SOFTWARE QUEST</div><div class="status">Nivel <b id="level">1</b>/4 · <b id="points">0</b> pts <span class="progress"><span id="progress"></span></span></div></header>
+
+<main>
+<section id="home" class="page active"><div class="box center">
+<div class="art"><div class="dots"></div><div class="dots b"></div><div class="monitor"></div><div class="base"></div></div>
+<span class="tag">ADSO · SENA</span><h1 class="title">SOFTWARE <span>QUEST</span></h1>
+<p class="subtitle">Aprende sobre software y licencias mediante retos visuales, decisiones y situaciones de desarrollo.</p>
+<button class="btn" id="startBtn">Comenzar</button>
+<div class="cards"><div class="card"><b>01</b><small>Hardware y software</small></div><div class="card"><b>02</b><small>Licencias</small></div><div class="card"><b>03</b><small>Tipos de licencia</small></div><div class="card"><b>04</b><small>Elegir la adecuada</small></div></div>
+</div></section>
+
+<section id="level1" class="page"><div class="box"><div class="head"><span class="tag">NIVEL 1</span><h2>Hardware o software</h2><p>Arrastra cada elemento a la categoría correcta. En celular, puedes tocar un elemento y luego tocar una zona.</p></div><div class="panel"><div class="items" id="items"></div><div class="zones"><div class="zone" id="hardware"><h3>HARDWARE</h3><p>Parte física: se puede tocar.</p></div><div class="zone" id="software"><h3>SOFTWARE</h3><p>Parte lógica: programas e instrucciones.</p></div></div><div class="feedback" id="f1"></div></div></div></section>
+
+<section id="level2" class="page"><div class="box"><div class="head"><span class="tag">NIVEL 2</span><h2>La puerta de los permisos</h2><p>Una licencia establece permisos y condiciones para utilizar el software. Activa algunos permisos para visualizar esta relación.</p></div><div class="panel"><div class="permission"><div class="person"><div class="ico">👩‍💻</div><b>PROGRAMADOR</b><small>Crea el software</small></div><div class="door"><h3>LICENCIA · PROGRAMA</h3><div class="perms"><button class="perm">Usar</button><button class="perm">Copiar</button><button class="perm">Modificar</button><button class="perm">Distribuir</button></div></div><div class="person"><div class="ico">🧑‍💻</div><b>USUARIO</b><small>Recibe permisos</small></div></div><button class="btn" id="finish2" style="display:block;margin:18px auto 0">Comprobar comprensión</button><div class="feedback" id="f2"></div></div></div></section>
+
+<section id="level3" class="page"><div class="box"><div class="head"><span class="tag">NIVEL 3</span><h2>Conoce las licencias</h2><p>Lee las características y después identifica la licencia en situaciones de desarrollo.</p></div><div class="panel" id="licensePanel"><div class="licenses">
+<div class="lic"><h3>GPL</h3><h4>Software libre</h4><p>Permite usar, modificar y distribuir el software. Cuando se distribuye una versión modificada, debe mantenerse bajo la misma licencia GPL.</p><span class="key">Idea clave: mantener las mismas libertades.</span></div>
+<div class="lic"><h3>MIT</h3><h4>Licencia permisiva</h4><p>Permite usar, modificar y distribuir el software con pocas restricciones. También puede utilizarse en proyectos comerciales, respetando sus condiciones.</p><span class="key">Idea clave: reutilizar y adaptar con bastante libertad.</span></div>
+<div class="lic"><h3>Propietaria</h3><h4>Software con restricciones</h4><p>El propietario establece las condiciones de uso, modificación y distribución. Generalmente, el código fuente no está disponible para ser modificado libremente.</p><span class="key">Idea clave: el titular mantiene el control.</span></div>
+<div class="lic"><h3>Dominio Público</h3><h4>Sin derechos exclusivos aplicables</h4><p>La obra o software se encuentra disponible sin derechos exclusivos de autor aplicables, por lo que puede utilizarse, modificarse y distribuirse libremente.</p><span class="key">Idea clave: no hay derechos exclusivos de autor aplicables que limiten su uso.</span></div>
+</div><button class="btn" id="start3" style="display:block;margin:20px auto 0">Ir al reto</button></div>
+<div class="panel" id="challenge3" style="display:none"><div class="challenge"><div class="clue"><b>SITUACIÓN <span id="cnum">1</span> DE 4</b><p id="clueText"></p></div><div class="answers"><button class="answer" data-a="GPL"><b>GPL</b><small>Software libre con copyleft.</small></button><button class="answer" data-a="MIT"><b>MIT</b><small>Permisiva y flexible.</small></button><button class="answer" data-a="PROPIETARIA"><b>Propietaria</b><small>El titular controla las condiciones.</small></button><button class="answer" data-a="PUBLICO"><b>Dominio Público</b><small>Sin derechos exclusivos de autor aplicables.</small></button></div></div><div class="feedback" id="f3"></div></div></div></section>
+
+<section id="level4" class="page"><div class="box"><div class="head"><span class="tag">NIVEL 4</span><h2>Decide como consultor</h2><p>Selecciona la licencia más adecuada para cada proyecto.</p></div><div class="case"><small id="caseTag"></small><h2 id="caseTitle"></h2><p id="caseText"></p><div class="choices" id="choices"></div><div class="feedback" id="f4"></div></div></div></section>
+
+<section id="final" class="page"><div class="box result"><span class="tag">JUEGO COMPLETADO</span><h1 id="rank">¡Buen trabajo!</h1><p>Completaste los cuatro niveles.</p><div class="score"><span id="finalPoints">0</span> puntos</div><p>Aprendiste a diferenciar hardware y software, comprender las licencias, reconocer sus tipos y seleccionar una opción según un proyecto.</p><button class="btn" id="rubricBtn">Evaluación de aprendizaje</button></div></section>
+
+<section id="rubric" class="page"><div class="box"><span class="tag">EVALUACIÓN · SENA</span><h2>¿Cuánto aprendiste?</h2><p>Marca de 1 a 4 según tu nivel de comprensión.</p><div class="rubric">
+<div class="row head"><span>Criterio</span><span>1</span><span>2</span><span>3</span><span>4</span></div>
+<div class="row"><span>Diferencio hardware y software.</span><input name="r1" type="radio"><input name="r1" type="radio"><input name="r1" type="radio"><input name="r1" type="radio"></div>
+<div class="row"><span>Comprendo qué es una licencia.</span><input name="r2" type="radio"><input name="r2" type="radio"><input name="r2" type="radio"><input name="r2" type="radio"></div>
+<div class="row"><span>Identifico los cuatro tipos.</span><input name="r3" type="radio"><input name="r3" type="radio"><input name="r3" type="radio"><input name="r3" type="radio"></div>
+<div class="row"><span>Puedo elegir según un proyecto.</span><input name="r4" type="radio"><input name="r4" type="radio"><input name="r4" type="radio"><input name="r4" type="radio"></div>
+</div><div class="feedback" id="rubricResult"></div><button class="btn" id="calcBtn" style="margin-top:15px">Ver resultado</button></div></section>
+</main>
+
+<script>
+(function(){
+"use strict";
+var current=1, points=0, selected=null, l1done=0, p2=0, ci=0, caseI=0;
+var items=[["Monitor","H"],["Teclado","H"],["Mouse","H"],["Disco duro","H"],["Sistema operativo","S"],["Navegador","S"],["Videojuego","S"],["Aplicación","S"]];
+var clues=[
+["GPL","Un equipo desarrolla software libre y quiere que otras personas puedan modificarlo y distribuirlo. Las versiones modificadas que se distribuyan deben mantener las mismas libertades.","GPL"],
+["MIT","Una biblioteca de código debe poder reutilizarse, modificarse y distribuirse con pocas restricciones, incluso en proyectos comerciales, respetando sus condiciones.","MIT"],
+["PROPIETARIA","Una empresa quiere mantener el control del programa y establecer quién puede utilizarlo y bajo qué condiciones.","PROPIETARIA"],
+["PUBLICO","Una obra se pone a disposición de todos sin derechos exclusivos de autor aplicables que limiten su uso.","PUBLICO"]
+];
+var cases=[
+["STARTUP","Biblioteca para reutilizar","Una startup quiere que otras personas puedan reutilizar y adaptar su código con pocas restricciones.","MIT","MIT facilita la reutilización, modificación y distribución del código, respetando sus condiciones."],
+["EMPRESA","Programa bajo control","Una empresa quiere controlar quién utiliza su software y establecer las condiciones de uso y distribución.","PROPIETARIA","Una licencia propietaria permite al titular establecer las condiciones de uso y distribución."],
+["SOFTWARE LIBRE","Mantener las mismas libertades","Un equipo quiere que las versiones modificadas que se distribuyan mantengan las mismas libertades del software original.","GPL","GPL exige mantener la misma licencia en las versiones derivadas que se distribuyan."],
+["OBRA","Uso sin derechos exclusivos aplicables","Un proyecto quiere poner una obra a disposición de todos sin reservar derechos exclusivos de autor aplicables.","PUBLICO","En el dominio público no existen derechos exclusivos de autor aplicables que limiten el uso de la obra."]
+];
+
+function $(id){return document.getElementById(id)}
+function show(id){document.querySelectorAll(".page").forEach(function(x){x.classList.remove("active")});$(id).classList.add("active");window.scrollTo(0,0)}
+function hud(){ $("level").textContent=current; $("points").textContent=points; $("progress").style.width=(current/4*100)+"%" }
+function add(n){points+=n;hud()}
+function start(){current=1;points=0;hud();show("level1");setupL1()}
+$("startBtn").addEventListener("click",start);
+
+function setupL1(){
+var box=$("items");box.innerHTML="";l1done=0;selected=null;
+items.slice().sort(function(){return Math.random()-.5}).forEach(function(a){
+var d=document.createElement("div");d.className="item";d.textContent=a[0];d.dataset.type=a[1];d.draggable=true;
+d.addEventListener("dragstart",function(){selected=d});d.addEventListener("click",function(){selected=d;document.querySelectorAll(".zone").forEach(function(z){z.style.outline="none"});});
+box.appendChild(d);
+});
+["hardware","software"].forEach(function(id){
+var z=$(id);
+z.addEventListener("dragover",function(e){e.preventDefault()});
+z.addEventListener("drop",function(e){e.preventDefault();place(z)});
+z.addEventListener("click",function(){if(selected)place(z)});
+});
+}
+function place(z){
+if(!selected)return;
+var ok=(z.id==="hardware"&&selected.dataset.type==="H")||(z.id==="software"&&selected.dataset.type==="S");
+if(!ok){$("f1").innerHTML="<h3>Revisa la clasificación</h3><div>Recuerda: hardware es físico; software corresponde a programas e instrucciones.</div>";$("f1").classList.add("show");return}
+z.appendChild(selected);selected.draggable=false;selected=null;l1done++;add(10);
+if(l1done===8){$("f1").innerHTML="<h3>✓ Nivel 1 completado</h3><div><b>Hardware</b> es la parte física del computador. <b>Software</b> es la parte lógica formada por programas e instrucciones.</div><button class='btn' id='next1' style='margin-top:12px'>Continuar →</button>";$("f1").classList.add("show");$("next1").addEventListener("click",function(){current=2;hud();show("level2")})}
+}
+
+document.querySelectorAll(".perm").forEach(function(b){b.addEventListener("click",function(){b.classList.toggle("selected");p2++})});
+$("finish2").addEventListener("click",function(){
+if(p2===0){$("f2").innerHTML="<h3>Primero activa algunos permisos</h3><div>La actividad representa que una licencia puede establecer qué acciones están permitidas.</div>";$("f2").classList.add("show");return}
+add(30);$("f2").innerHTML="<h3>✓ Nivel 2 completado</h3><div>Una <b>licencia de software</b> establece permisos y condiciones para determinar cómo puede utilizarse, modificarse o distribuirse un programa.</div><button class='btn' id='next2' style='margin-top:12px'>Continuar →</button>";$("f2").classList.add("show");$("next2").addEventListener("click",function(){current=3;hud();show("level3")});
+});
+
+$("start3").addEventListener("click",function(){ $("licensePanel").style.display="none";$("challenge3").style.display="block";ci=0;renderClue()});
+function renderClue(){$("cnum").textContent=ci+1;$("clueText").textContent=clues[ci][1];$("f3").classList.remove("show")}
+document.querySelectorAll(".answer").forEach(function(b){b.addEventListener("click",function(){
+if(b.dataset.a===clues[ci][2]){add(25);$("f3").innerHTML="<h3>✓ Respuesta correcta</h3><div>"+clues[ci][1]+"</div><button class='btn' id='next3' style='margin-top:12px'>"+(ci===3?"Aplicar lo aprendido →":"Siguiente situación →")+"</button>";$("f3").classList.add("show");$("next3").addEventListener("click",function(){ci++;if(ci===4){current=4;hud();show("level4");renderCase()}else renderClue()})}
+else{$("f3").innerHTML="<h3>Inténtalo de nuevo</h3><div>Revisa las características de las cuatro licencias y busca cuál coincide mejor con la situación.</div>";$("f3").classList.add("show")}
+})});
+
+function renderCase(){var c=cases[caseI];$("caseTag").textContent=c[0];$("caseTitle").textContent=c[1];$("caseText").textContent=c[2];$("f4").classList.remove("show");$("choices").innerHTML="";["GPL","MIT","PROPIETARIA","PUBLICO"].forEach(function(x){var b=document.createElement("button");b.className="choice";b.innerHTML="<b>"+(x==="PUBLICO"?"Dominio Público":x)+"</b><small>Seleccionar esta licencia</small>";b.addEventListener("click",function(){chooseCase(x)});$("choices").appendChild(b)})}
+function chooseCase(x){var c=cases[caseI];if(x!==c[3]){$("f4").innerHTML="<h3>Revisa la situación</h3><div>Piensa primero en qué necesita el proyecto: libertad de reutilización, control del propietario o ausencia de derechos exclusivos aplicables.</div>";$("f4").classList.add("show");return}
+add(40);$("f4").innerHTML="<h3>✓ Decisión correcta</h3><div>"+c[4]+"</div><button class='btn' id='next4' style='margin-top:12px'>"+(caseI===3?"Finalizar juego →":"Siguiente caso →")+"</button>";$("f4").classList.add("show");$("next4").addEventListener("click",function(){caseI++;if(caseI===4){current=4;$("finalPoints").textContent=points;$("rank").textContent=points>=230?"Excelente dominio":points>=170?"Muy buen trabajo":"Buen trabajo";show("final")}else renderCase()})}
+
+$("rubricBtn").addEventListener("click",function(){show("rubric")});
+$("calcBtn").addEventListener("click",function(){var total=0;for(var i=1;i<=4;i++){var r=document.querySelector("input[name=r"+i+"]:checked");if(!r){$("rubricResult").innerHTML="<h3>Falta completar</h3><div>Marca una opción en cada criterio.</div>";$("rubricResult").classList.add("show");return}total+=Array.from(document.querySelectorAll("input[name=r"+i+"]")).indexOf(r)+1}var avg=total/4;$("rubricResult").innerHTML="<h3>Resultado: "+avg.toFixed(1)+"/4</h3><div>"+(avg>=3.5?"Demuestras una comprensión muy buena de los temas.":avg>=2.5?"Comprendiste los conceptos principales.":"Te recomendamos repasar los conceptos y volver a realizar los retos.")+"</div>";$("rubricResult").classList.add("show")});
+hud();
+})();
+</script>
+</body>
+</html>
